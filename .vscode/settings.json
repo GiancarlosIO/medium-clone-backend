@@ -1,0 +1,25 @@
+{
+  "editor.formatOnSave": true,
+  "javascript.format.enable": false,
+  "[typescript]": {
+    "editor.formatOnSave": false
+  },
+  "html.format.enable": false,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "Babel Javascript",
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.enable": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

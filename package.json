@@ -32,9 +32,22 @@
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
     "@babel/preset-env": "7.2.3",
     "@babel/preset-typescript": "7.1.0",
+    "babel-eslint": "10.0.1",
     "babel-plugin-import-graphql": "2.6.2",
+    "eslint": "5.11.1",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-prettier": "3.3.0",
+    "eslint-config-typescript": "1.1.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-prettier": "3.0.1",
+    "eslint-plugin-react": "7.12.2",
+    "eslint-plugin-typescript": "0.14.0",
     "nodemon": "1.18.9",
-    "typescript": "3.2.2"
+    "pluggable-babel-eslint": "0.3.0",
+    "prettier": "1.15.3",
+    "typescript": "3.1.1",
+    "typescript-eslint-parser": "21.0.2"
   },
   "dependencies": {
     "chalk": "2.4.1",

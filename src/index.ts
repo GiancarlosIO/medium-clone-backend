@@ -10,7 +10,7 @@ const server = new GraphQLServer({
   resolvers,
   context: {
     prisma,
-  }
+  },
 });
 
 const port = parseInt(process.env.PORT || '4000', 10);
