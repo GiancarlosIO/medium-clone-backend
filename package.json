@@ -1,0 +1,43 @@
+{
+  "name": "medium-clone-backend",
+  "version": "1.0.0",
+  "description": "The backend part of a medium clone",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "test",
+    "start": "npx nodemon -e ts,graphql -x babel-node --extensions .ts --inspect src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/GiancarlosIO/medium-clone-backend.git"
+  },
+  "keywords": [
+    "medium",
+    "react",
+    "apollo-client"
+  ],
+  "author": "Giancarlos Isasi <giancarlos.isasi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GiancarlosIO/medium-clone-backend/issues"
+  },
+  "homepage": "https://github.com/GiancarlosIO/medium-clone-backend#readme",
+  "devDependencies": {
+    "@babel/cli": "7.2.3",
+    "@babel/core": "7.2.2",
+    "@babel/node": "7.2.2",
+    "@babel/plugin-proposal-class-properties": "7.2.3",
+    "@babel/plugin-proposal-decorators": "7.2.3",
+    "@babel/plugin-proposal-export-default-from": "7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "7.2.0",
+    "@babel/preset-env": "7.2.3",
+    "@babel/preset-typescript": "7.1.0",
+    "nodemon": "1.18.9",
+    "typescript": "3.2.2"
+  },
+  "dependencies": {
+    "express": "4.16.4",
+    "prisma": "1.23.2",
+    "prisma-client-lib": "1.23.3"
+  }
+}
