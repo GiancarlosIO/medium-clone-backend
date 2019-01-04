@@ -11,6 +11,9 @@ module.exports = {
     '@babel/preset-typescript',
   ],
   plugins: [
+    [
+      'import-graphql',
+    ],
     '@babel/plugin-proposal-export-default-from',
     [
       '@babel/plugin-proposal-decorators',
@@ -23,7 +26,6 @@ module.exports = {
       {
         loose: true,
       },
-    ],
-    '@babel/plugin-syntax-dynamic-import',
+    ]
   ],
 };

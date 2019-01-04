@@ -1,15 +1,31 @@
 import { prisma } from '../generated/prisma-client';
+import { GraphQLServer } from 'graphql-yoga';
+import ip from 'ip';
+import chalk from 'chalk';
 
-// A `main` function so that we can use async/await
-async function main() {
+import resolvers from './resolvers';
 
-  // Create a new user called `Alice`
-  const newUser = await prisma.createUser({ name: 'Alice' })
-  console.log(`Created new user: ${newUser.name} (ID: ${newUser.id})`)
+const server = new GraphQLServer({
+  typeDefs: './src/typeDefs/schema.graphql',
+  resolvers,
+  context: {
+    prisma,
+  }
+});
 
-  // Read all users from the database and print them to the console
-  const allUsers = await prisma.users()
-  console.log(allUsers)
-}
+const port = parseInt(process.env.PORT || '4000', 10);
+server.start({ port }, () => {
+  const divider = chalk.gray('-----------------------------------');
+  const localhost = chalk.magenta(`http://localhost:${port}`);
+  const lan = chalk.magenta(`http://${ip.address()}:${port}`);
 
-main().catch(e => console.error(e));
+  console.log(`
+    Server Started!
+
+    ${chalk.bold('Access URLs:')}
+    ${divider}
+      Localhost: ${localhost}
+            LAN: ${lan}
+    ${divider}
+  `);
+});

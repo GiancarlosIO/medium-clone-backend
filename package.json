@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "test",
-    "start": "npx nodemon -e ts,graphql -x babel-node --extensions .ts --inspect src/index.ts"
+    "start": "rm -rf ./node_modules/.cache/babel-loader && npx nodemon -e ts,graphql -x babel-node --extensions .ts --inspect src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -32,11 +32,18 @@
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
     "@babel/preset-env": "7.2.3",
     "@babel/preset-typescript": "7.1.0",
+    "babel-plugin-import-graphql": "2.6.2",
     "nodemon": "1.18.9",
     "typescript": "3.2.2"
   },
   "dependencies": {
+    "chalk": "2.4.1",
     "express": "4.16.4",
+    "graphql": "14.0.2",
+    "graphql-cli": "3.0.4",
+    "graphql-tag": "2.10.0",
+    "graphql-yoga": "1.16.9",
+    "ip": "1.1.5",
     "prisma": "1.23.2",
     "prisma-client-lib": "1.23.3"
   }
