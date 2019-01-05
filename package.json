@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "test",
-    "start": "rm -rf ./node_modules/.cache/babel-loader && npx nodemon -e ts,graphql -x babel-node --extensions .ts --inspect src/index.ts"
+    "start": "rm -rf ./node_modules/.cache/babel-loader && npx nodemon -e ts,graphql -x babel-node --extensions .ts --inspect src/index.ts",
+    "deploy": "npx prisma deploy"
   },
   "repository": {
     "type": "git",

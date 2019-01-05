@@ -61,7 +61,7 @@ type PostConnection {
 input PostCreateInput {
   title: String!
   published: Boolean
-  author: UserCreateOneWithoutPostInput
+  author: UserCreateOneWithoutPostsInput
 }
 
 input PostCreateManyWithoutAuthorInput {
@@ -155,7 +155,7 @@ input PostSubscriptionWhereInput {
 input PostUpdateInput {
   title: String
   published: Boolean
-  author: UserUpdateOneWithoutPostInput
+  author: UserUpdateOneWithoutPostsInput
 }
 
 input PostUpdateManyDataInput {
@@ -260,7 +260,7 @@ type User {
   id: ID!
   name: String!
   email: String!
-  post(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
 }
 
 type UserConnection {
@@ -272,15 +272,15 @@ type UserConnection {
 input UserCreateInput {
   name: String!
   email: String!
-  post: PostCreateManyWithoutAuthorInput
+  posts: PostCreateManyWithoutAuthorInput
 }
 
-input UserCreateOneWithoutPostInput {
-  create: UserCreateWithoutPostInput
+input UserCreateOneWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
   connect: UserWhereUniqueInput
 }
 
-input UserCreateWithoutPostInput {
+input UserCreateWithoutPostsInput {
   name: String!
   email: String!
 }
@@ -330,7 +330,7 @@ input UserSubscriptionWhereInput {
 input UserUpdateInput {
   name: String
   email: String
-  post: PostUpdateManyWithoutAuthorInput
+  posts: PostUpdateManyWithoutAuthorInput
 }
 
 input UserUpdateManyMutationInput {
@@ -338,23 +338,23 @@ input UserUpdateManyMutationInput {
   email: String
 }
 
-input UserUpdateOneWithoutPostInput {
-  create: UserCreateWithoutPostInput
-  update: UserUpdateWithoutPostDataInput
-  upsert: UserUpsertWithoutPostInput
+input UserUpdateOneWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
+  update: UserUpdateWithoutPostsDataInput
+  upsert: UserUpsertWithoutPostsInput
   delete: Boolean
   disconnect: Boolean
   connect: UserWhereUniqueInput
 }
 
-input UserUpdateWithoutPostDataInput {
+input UserUpdateWithoutPostsDataInput {
   name: String
   email: String
 }
 
-input UserUpsertWithoutPostInput {
-  update: UserUpdateWithoutPostDataInput!
-  create: UserCreateWithoutPostInput!
+input UserUpsertWithoutPostsInput {
+  update: UserUpdateWithoutPostsDataInput!
+  create: UserCreateWithoutPostsInput!
 }
 
 input UserWhereInput {
@@ -400,9 +400,9 @@ input UserWhereInput {
   email_not_starts_with: String
   email_ends_with: String
   email_not_ends_with: String
-  post_every: PostWhereInput
-  post_some: PostWhereInput
-  post_none: PostWhereInput
+  posts_every: PostWhereInput
+  posts_some: PostWhereInput
+  posts_none: PostWhereInput
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]

@@ -172,10 +172,10 @@ export type UserOrderByInput =
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
-export interface UserUpdateOneWithoutPostInput {
-  create?: UserCreateWithoutPostInput;
-  update?: UserUpdateWithoutPostDataInput;
-  upsert?: UserUpsertWithoutPostInput;
+export interface UserUpdateOneWithoutPostsInput {
+  create?: UserCreateWithoutPostsInput;
+  update?: UserUpdateWithoutPostsDataInput;
+  upsert?: UserUpsertWithoutPostsInput;
   delete?: Boolean;
   disconnect?: Boolean;
   connect?: UserWhereUniqueInput;
@@ -205,7 +205,7 @@ export interface PostUpdateManyWithoutAuthorInput {
 export interface UserCreateInput {
   name: String;
   email: String;
-  post?: PostCreateManyWithoutAuthorInput;
+  posts?: PostCreateManyWithoutAuthorInput;
 }
 
 export interface PostUpdateManyMutationInput {
@@ -227,7 +227,7 @@ export interface UserSubscriptionWhereInput {
 export interface PostCreateInput {
   title: String;
   published?: Boolean;
-  author?: UserCreateOneWithoutPostInput;
+  author?: UserCreateOneWithoutPostsInput;
 }
 
 export interface UserUpdateManyMutationInput {
@@ -235,8 +235,8 @@ export interface UserUpdateManyMutationInput {
   email?: String;
 }
 
-export interface UserCreateOneWithoutPostInput {
-  create?: UserCreateWithoutPostInput;
+export interface UserCreateOneWithoutPostsInput {
+  create?: UserCreateWithoutPostsInput;
   connect?: UserWhereUniqueInput;
 }
 
@@ -245,7 +245,7 @@ export interface PostUpdateManyWithWhereNestedInput {
   data: PostUpdateManyDataInput;
 }
 
-export interface UserCreateWithoutPostInput {
+export interface UserCreateWithoutPostsInput {
   name: String;
   email: String;
 }
@@ -258,7 +258,7 @@ export type UserWhereUniqueInput = AtLeastOne<{
 export interface PostUpdateInput {
   title?: String;
   published?: Boolean;
-  author?: UserUpdateOneWithoutPostInput;
+  author?: UserUpdateOneWithoutPostsInput;
 }
 
 export interface PostUpdateWithoutAuthorDataInput {
@@ -269,7 +269,7 @@ export interface PostUpdateWithoutAuthorDataInput {
 export interface UserUpdateInput {
   name?: String;
   email?: String;
-  post?: PostUpdateManyWithoutAuthorInput;
+  posts?: PostUpdateManyWithoutAuthorInput;
 }
 
 export interface UserWhereInput {
@@ -315,15 +315,15 @@ export interface UserWhereInput {
   email_not_starts_with?: String;
   email_ends_with?: String;
   email_not_ends_with?: String;
-  post_every?: PostWhereInput;
-  post_some?: PostWhereInput;
-  post_none?: PostWhereInput;
+  posts_every?: PostWhereInput;
+  posts_some?: PostWhereInput;
+  posts_none?: PostWhereInput;
   AND?: UserWhereInput[] | UserWhereInput;
   OR?: UserWhereInput[] | UserWhereInput;
   NOT?: UserWhereInput[] | UserWhereInput;
 }
 
-export interface UserUpdateWithoutPostDataInput {
+export interface UserUpdateWithoutPostsDataInput {
   name?: String;
   email?: String;
 }
@@ -380,9 +380,9 @@ export interface PostWhereInput {
   NOT?: PostWhereInput[] | PostWhereInput;
 }
 
-export interface UserUpsertWithoutPostInput {
-  update: UserUpdateWithoutPostDataInput;
-  create: UserCreateWithoutPostInput;
+export interface UserUpsertWithoutPostsInput {
+  update: UserUpdateWithoutPostsDataInput;
+  create: UserCreateWithoutPostsInput;
 }
 
 export interface PostScalarWhereInput {
@@ -502,7 +502,7 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   email: () => Promise<String>;
-  post: <T = FragmentableArray<Post>>(
+  posts: <T = FragmentableArray<Post>>(
     args?: {
       where?: PostWhereInput;
       orderBy?: PostOrderByInput;
@@ -521,7 +521,7 @@ export interface UserSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
-  post: <T = Promise<AsyncIterator<PostSubscription>>>(
+  posts: <T = Promise<AsyncIterator<PostSubscription>>>(
     args?: {
       where?: PostWhereInput;
       orderBy?: PostOrderByInput;
